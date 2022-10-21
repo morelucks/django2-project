@@ -1,0 +1,32 @@
+{%extends 'main.html'%} 
+{% block content %}
+    <style>
+        .main_container{
+            display:flex;
+            flex:3;
+        }
+        .topics{
+            flex:3;
+        }
+        .room{
+            flex:7;
+        }
+         .activities{
+            flex:2;
+        }
+    </style>
+
+    <div class="main_container">
+       {% include 'base/topics_component.html' %}
+        <div class="room">
+            <h5>{{room_count}} Room Available</h5>
+             <a href="{%url 'create-room' %}">Create Room</a>
+            {% include 'base/feed_component.html' %}
+        </div>
+        <div class="activities">
+            {% include 'base/activity_component.html' %}
+        </div>
+    </div>
+{% endblock content %}
+
+
